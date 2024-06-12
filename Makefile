@@ -19,11 +19,6 @@ help: ## Display help.
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 
-.PHONY: install
-install: ## Install the present tool.
-	go install golang.org/x/tools/cmd/present@latest
-
-
 .PHONY: present
 present: ## Start the presentation.
 	present -content ./content -base ./theme -notes -use_playground=true
