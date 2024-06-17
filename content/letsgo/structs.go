@@ -9,13 +9,12 @@ type User struct {
 	LastName  string `json:"lastName"`
 }
 
-func (user *User) FullName() string {
+func (user User) FullName() string {
 	return user.FirstName + " " + user.LastName
 }
 
 func main() {
-	user := User{FirstName: "Arnaud", LastName: "Lasnier"}
-	p := &user
-	p.FirstName, p.LastName = "Rob", "Pike"
+	user := &User{FirstName: "Arnaud", LastName: "Lasnier"}
+	user.FirstName, user.LastName = "Rob", "Pike"
 	fmt.Println(user.FullName())
 }
