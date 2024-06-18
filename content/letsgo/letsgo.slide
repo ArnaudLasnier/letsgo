@@ -4,11 +4,13 @@ An Introduction to the Go Programming Environment
 
 Arnaud Lasnier
 
-## A new business line for Back Market
+## The Go Toolchain
 
-## Setup, Tooling & Demo
+## App Demo
 
-## Application Startup
+## HTMX: You Best Friend for Admin Websites!
+
+## First Dive Into the Code
 
 ## Basics
 
@@ -21,7 +23,7 @@ var j int = 10    // declaration and assignment
 k := 10           // short notation
 ```
 
-Main function, main package and hello world!
+Hello world in Go:
 
 .play -edit hello_world.go
 
@@ -35,7 +37,7 @@ A **struct** is a collection of fields. Fields can have **tags**. Structs can ha
 
 Go is a **pass-by-value language** and has **pointers**:
 
-.play -numbers increment.go /START OMIT/,/END OMIT/
+.play -numbers pointers_party.go /START OMIT/,/END OMIT/
 
 You cannot dereference a `nil` pointer without a **runtime error**:
 
@@ -45,15 +47,23 @@ You cannot dereference a `nil` pointer without a **runtime error**:
 
 <!-- .play -numbers pointers.go -->
 
-## Create Player Modal and HTMX Overview
+## The Horrible Truth About Go
 
-## Schema Migrations and Models Generation
-
-## Starting a Tournament: Error Handling
+## Object-Relational Mapping
 
 ## Interfaces
 
-The `error` interface is defined like this:
+Interfaces are simply **method sets** in Go.
+
+Here is the `http.Handler` interface, from the standard library:
+
+```go
+type Handler interface {
+	ServeHTTP(w http.ResponseWriter, r *http.Request)
+}
+```
+
+And here is the built-in `error` interface, in the Go language itself:
 
 ```go
 type error interface {
@@ -61,9 +71,11 @@ type error interface {
 }
 ```
 
-## Error Handling in Practice
+## Testing the "Start Tournament" Logic
 
-## Generating Matches
+## Handling Errors in the "Start Tournament" Logic
+
+## Generating Matches in the "Start Tournament" Logic
 
 ## Zero Values
 
@@ -108,13 +120,11 @@ Allocations with `make`:
 
 .play slice_allocation.go  /START OMIT/,/END OMIT/
 
-Slice length:
-
-.play slice_length.go  /START OMIT/,/END OMIT/
-
-## Slices: append, len and cap
+## Slices: the append Built-In Function
 
 .play append.go
+
+And yes, `append` is smart enough to handle `nil` slices!
 
 ## Using Pointers for Optionality
 
